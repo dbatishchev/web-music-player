@@ -2,10 +2,10 @@ Web Music Player
 ========================
 
 ``` bash
-npm install
-gulp
+$ npm install
+$ gulp
 ```
 
 ``` bash
-python manage.py runserver
+$ python manage.py runserver
 ```

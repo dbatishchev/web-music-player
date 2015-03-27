@@ -5,14 +5,14 @@ define([
 	'angularRoute',
     'frontpage'
 ], function(angular) {
-	return angular.module('Universarium', [
+	return angular.module('Music', [
 		'ngRoute',
-		'Universarium.frontpage'
+		'Music.frontpage'
 	])
-        .config(function(RestangularProvider) {
+        .config(function() {
 
         })
-        .run(function($rootScope, Restangular) {
+        .run(function($rootScope) {
 
 
         });

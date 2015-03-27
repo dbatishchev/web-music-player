@@ -5,7 +5,7 @@ define([
     'bootstrap',
     'jquery'
 ], function() {
-angular.module('Universarium.frontpage', [
+angular.module('Music.frontpage', [
     'ngRoute'
 ])
     .config(function($routeProvider) {

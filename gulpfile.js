@@ -33,13 +33,9 @@ var path = {
 gulp.task('js:build', function () {
     gulp.src([path.src.js, '!front/js/pages/**/*.spec.js', '!front/js/components/**/*.spec.js']) //Найдем наш main файл
         .pipe(ngAnnotate())
-/*
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
-*/
         .pipe(uglify()) //Сожмем наш js
-/*
         .pipe(sourcemaps.write()) //Пропишем карты
-*/
         .pipe(gulp.dest(path.dist.js)); //Выплюнем готовый файл в dist
 
     gulp.src("front/js/components/**/*.spec.js")

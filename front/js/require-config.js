@@ -17,16 +17,15 @@ if(window.__karma__) {
 
 require.config({
 	paths: {
-        jquery: 'lib/jquery/dist/jquery.min',
-		angular: 'lib/angular/angular',
-		angularRoute: 'lib/angular-route/angular-route',
-		angularMocks: 'lib/angular-mocks/angular-mocks',
-        angularTouch: 'lib/angular-touch/angular-touch',
-        bootstrap: 'lib/bootstrap/dist/js/bootstrap.min',
-        text: 'lib/requirejs-text/text',
-        underscore: 'lib/underscore/underscore-min',
-        frontpage: 'js/pages/frontpage/frontpage'
-
+        jquery: '/static/lib/jquery/dist/jquery.min',
+		angular: '/static/lib/angular/angular',
+		angularRoute: '/static/lib/angular-route/angular-route',
+		angularMocks: '/static/lib/angular-mocks/angular-mocks',
+        angularTouch: '/static/lib/angular-touch/angular-touch',
+        bootstrap: '/static/lib/bootstrap/dist/js/bootstrap.min',
+        text: '/static/lib/requirejs-text/text',
+        underscore: '/static/lib/underscore/underscore-min',
+        frontpage: '/static/js/pages/frontpage/frontpage'
 	},
 	shim: {
 		angular : {'exports' : 'angular'},
@@ -46,15 +45,15 @@ require.config({
     callback: window.__karma__ ? window.__karma__.start : null,
     baseUrl: window.__karma__ ? '/base/dist' : '',
 
-    insertRequire: ['js/main'],
-    name: 'js/main',
+    insertRequire: ['static/js/main'],
+    name: 'static/js/main',
     optimize: 'none',
     wrap: true
 });
 
 require([
         'angular',
-        'js/main'
+        'static/js/main'
     ], function(angular, app) {
         angular.element().ready(function() {
             angular.bootstrap(document, ['Music']);
