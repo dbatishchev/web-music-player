@@ -1,0 +1,41 @@
+{
+  "name": "WebMusicPlayer",
+  "version": "0.0.1",
+  "description": "Web Music Player",
+  "main": "/front/js/main.js",
+  "author": "Dmitrii Batishchev",
+  "devDependencies": {
+    "amdefine": "0.1",
+    "bower": "*",
+    "gulp": "^3.8",
+    "gulp-bower": "*",
+    "gulp-css-url-adjuster": "*",
+    "gulp-cssmin": "*",
+    "gulp-ng-annotate": "*",
+    "gulp-rigger": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-watch": "*",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-junit-reporter": "^0.2.2",
+    "karma-requirejs": "^0.2.2",
+    "protractor": "^1.8.0",
+    "requirejs": "^2.1.15",
+    "shelljs": "^0.2.6"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 app",
+    "pretest": "npm install",
+    "test": "node_modules/karma/bin/karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js  --single-run",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
+  }
+}

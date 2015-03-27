@@ -1,0 +1,5 @@
+web_music_player/static
+!web_music_player/static/.gitkeep
+node_modules
+npm-debug.log
+.idea

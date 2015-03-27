@@ -1,0 +1,33 @@
+{
+  "name": "WebMusicPlayer",
+  "version": "0.0.1",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "Dmitrii Batishchev"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.*",
+    "bootstrap": "3",
+    "angularjs": "1.4",
+    "angular-route": "~1.4",
+    "angular-loader": "~1.4",
+    "angular-mocks": "~1.4",
+    "angular-touch": "~1.4",
+    "underscore": "*",
+    "requirejs": "2.1.x",
+    "requirejs-text": "2.0.x"
+  },
+  "resolutions": {
+    "angular": "~1.4.x"
+  }
+}
