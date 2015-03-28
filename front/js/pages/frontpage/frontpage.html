@@ -1,0 +1,10 @@
+<h1>Best albums</h1>
+<div class="clearfix">
+    <div data-ng-repeat="album in albums" class="album">
+            <div class="image">
+                <img src="{{album.image[3]['#text']}}">
+            </div>
+            <div class="name">{{album.name}}</div>
+            <div class="artist">{{album.artist.name}}</div>
+    </div>
+</div>

@@ -24,7 +24,7 @@ var path = {
     },
     watch: {
         js: 'front/js/**/*.js',
-        style: 'front/style/**/*.scss',
+        style: 'front/scss/main.scss',
         img: 'front/images/**/*.*'
     },
     clean: './web_music_player/static'
