@@ -27,7 +27,11 @@ require.config({
         underscore: '/static/lib/underscore/underscore-min',
         frontpage: '/static/js/pages/frontpage/frontpage',
         artist: '/static/js/pages/artist/artist',
-        album: '/static/js/pages/album/album'
+        album: '/static/js/pages/album/album',
+        toolbar: '/static/js/components/toolbar/toolbar',
+        lastfm: '/static/js/components/lastfm/lastfm',
+        vk: '/static/js/components/vk/vk',
+        player: '/static/js/components/player/player'
 	},
 	shim: {
 		angular : {'exports' : 'angular'},

@@ -1,0 +1,16 @@
+<h1>{{album.name}}</h1>
+<div class="clearfix album-page">
+    <div class="album-page-image">
+        <img src="{{album.image[4]['#text']}}">
+    </div>
+    <div class="album-page-info">
+        <ul class="album-page-tags clearfix">
+            <li data-ng-repeat="tag in album.toptags.tag"><span class="label label-info">{{tag.name}}</span></li>
+        </ul>
+        <ul class="album-page-tracks">
+            <li data-ng-repeat="track in album.tracks.track">
+                {{track.name}} : {{track.duration}}
+            </li>
+        </ul>
+    </div>
+</div>

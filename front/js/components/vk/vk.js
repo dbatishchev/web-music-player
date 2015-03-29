@@ -1,8 +1,8 @@
 'use strict';
 
 define(['angular'], function(angular) {
-    angular.module('Music.lastfm', [])
-        .service('lastfm', function() {
+    angular.module('Music.vk', [])
+        .service('vk', function() {
             /*
             var thisIsPrivate = "Private";
             this.variable = "This is public";

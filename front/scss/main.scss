@@ -249,3 +249,24 @@ h1{
 .label-info{
   background: #6bc0f1;
 }
+
+
+.album-page{
+  margin: 0 0 40px 0;
+}
+.album-page-image{
+  float: left;
+  margin: 0 20px 0 0;
+}
+.album-page-info{
+  overflow: hidden;
+}
+.album-page-tags{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li{
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+}

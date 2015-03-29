@@ -5,13 +5,15 @@ define([
 	'angularRoute',
     'frontpage',
     'artist',
-    'album'
+    'album',
+    'toolbar'
 ], function(angular) {
 	return angular.module('Music', [
 		'ngRoute',
 		'Music.frontpage',
 		'Music.artist',
-		'Music.album'
+		'Music.album',
+        'Music.toolbar'
 	])
         .config(function() {
 
