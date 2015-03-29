@@ -19,12 +19,12 @@ var path = {
     },
     src: {
         js: 'front/js/**/*.js',
-        style: 'front/scss/main.scss',
+        style: 'front/scss/*.scss',
         img: 'front/images/**/*.*'
     },
     watch: {
         js: 'front/js/**/*.js',
-        style: 'front/scss/main.scss',
+        style: 'front/scss/*.scss',
         img: 'front/images/**/*.*'
     },
     clean: './web_music_player/static'

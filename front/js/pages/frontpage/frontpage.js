@@ -22,5 +22,13 @@ angular.module('Music.frontpage', [
                 $scope.albums = data['topalbums']['album'];
             });
         })
+
+        $scope.getSanitazedString = function(string){
+            return string.replace(/ /g, '+')
+        }
+
+        $scope.getAlbumUrl = function(album){
+            return album.artist.name.replace(/ /g, '+') + '/' + album.name.replace(/ /g, '+');
+        }
     })
 });

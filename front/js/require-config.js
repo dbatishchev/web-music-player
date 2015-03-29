@@ -25,7 +25,9 @@ require.config({
         bootstrap: '/static/lib/bootstrap/dist/js/bootstrap.min',
         text: '/static/lib/requirejs-text/text',
         underscore: '/static/lib/underscore/underscore-min',
-        frontpage: '/static/js/pages/frontpage/frontpage'
+        frontpage: '/static/js/pages/frontpage/frontpage',
+        artist: '/static/js/pages/artist/artist',
+        album: '/static/js/pages/album/album'
 	},
 	shim: {
 		angular : {'exports' : 'angular'},

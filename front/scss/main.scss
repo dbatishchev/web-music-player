@@ -139,15 +139,18 @@ box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.1);
 .album{
   float: left;
   text-align: center;
-  width: 156px;
+  width: 172px;
   margin: 0 20px 20px 0;
   cursor: pointer;
   padding: 8px 8px 16px 8px;
   border-radius: 4px;
+  &:nth-child(5n+5){
+    margin-right: 0;
+  }
   .image{
     img{
-      width: 140px;
-      height: 140px;
+      width: 156px;
+      height: 156px;
       border-radius: 4px;
       border: 1px solid #c3c3c3;
       display: block;
@@ -170,9 +173,16 @@ box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.1);
     color: #708899;
     font-size: 12px;
   }
+  a{
+    color: #1c506e;
+    text-decoration: none;
+  }
 
   &:hover{
     background: #5fb3e3;
+    a{
+      color: #fff;
+    }
     .image{
       img{
         border-color: #5fb3e3;
@@ -192,4 +202,50 @@ h1{
   color: #1c506e;
   padding-left: 8px;
   margin-top: 10px;
+}
+
+.profile{
+  float: right;
+  margin: 4px 0 0 0;
+  .image{
+    float: left;
+    img{
+      height: 40px;
+      width: 40px;
+    }
+  }
+  .name{
+    margin: 12px 0 0 10px;
+    color: #fff;
+    font-size: 12px;
+    float: left;
+  }
+}
+
+
+
+
+
+
+.artist{
+  margin: 0 0 40px 0;
+}
+.artist-image{
+  float: left;
+  margin: 0 20px 0 0;
+}
+.artist-info{
+  overflow: hidden;
+}
+.artist-tags{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li{
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+}
+.label-info{
+  background: #6bc0f1;
 }

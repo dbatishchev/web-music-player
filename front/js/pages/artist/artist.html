@@ -1,0 +1,21 @@
+<h1>{{artist.name}}</h1>
+<div class="clearfix artist">
+    <div class="artist-image">
+        <img src="{{artist.image[4]['#text']}}">
+    </div>
+    <div class="artist-info">
+        <ul class="artist-tags clearfix">
+            <li data-ng-repeat="tag in artist.tags.tag"><span class="label label-info">{{tag.name}}</span></li>
+        </ul>
+        <p ng-bind="artist.bio.summary"></p>
+    </div>
+</div>
+    <div class="clearfix">
+        <div data-ng-repeat="album in albums" class="album">
+                <div class="image">
+                    <a href="#/artist/{{getSanitazedString(album.artist.name)}}/album/{{getSanitazedString(album.name)}}"><img src="{{album.image[3]['#text']}}"></a>
+                </div>
+                <div class="name"><a href="#/artist/{{getSanitazedString(album.artist.name)}}/album/{{getSanitazedString(album.name)}}">{{album.name}}</a></div>
+                <div class="artist"><a href="#/artist/{{getSanitazedString(album.artist.name)}}">{{album.artist.name}}</a></div>
+        </div>
+    </div>
