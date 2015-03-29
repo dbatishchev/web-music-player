@@ -1,3 +1,21 @@
-/**
- * Created by dmitrii on 28/03/15.
- */
+'use strict';
+
+define([
+    'angularRoute',
+    'bootstrap',
+    'jquery'
+], function() {
+angular.module('Music.history', [
+    'ngRoute'
+])
+    .config(function($routeProvider) {
+        $routeProvider.when('/history', {
+            templateUrl: '/static/js/pages/history/history.html',
+            controller: 'HistoryCtrl'
+        });
+    })
+
+    .controller('HistoryCtrl', function($scope, $location, $sce) {
+
+    })
+});
