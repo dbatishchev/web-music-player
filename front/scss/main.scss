@@ -54,6 +54,17 @@ a{
   border-top: 1px solid #eaeaea;
   height: 60px;
   line-height: 60px;
+  -webkit-box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.1);
+box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.1);
+}
+.controls{
+  &.controls-left{
+    float: left;
+  }
+  &.controls-right{
+    float: right;
+  }
 }
 .btn-play{
   height: 44px;
@@ -66,7 +77,60 @@ a{
   color: #3d87b2;
   font-size: 18px;
   display: block;
-  margin: 6px 0 0 0;
+  margin: 6px 8px 0 0;
+  float: left;
+  cursor: pointer;
+}
+.btn-control{
+  height: 26px;
+  width: 26px;
+  border-radius: 13px;
+  text-align: center;
+  background: #f5f5f5;
+  border: 1px solid #c6d6db;
+  line-height: 24px;
+  color: #3d87b2;
+  font-size: 12px;
+  display: block;
+  margin: 16px 8px 0 0;
+  float: left;
+  cursor: pointer;
+}
+.btn-state{
+  color: #3d87b2;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 4px 0 0 15px;
+  cursor: pointer;
+}
+
+.progress{
+  background: #c6d6db;
+}
+.time-progress{
+  float: left;
+  width: 680px;
+  margin: 25px 0 0 50px;
+  height: 10px;
+}
+.timer{
+  color: #3d87b2;
+  margin: 0 0 0 14px;
+  float: left;
+}
+.volume-level{
+  float: left;
+  width: 60px;
+  margin: 25px 0 0 5px;
+  height: 10px;
+}
+.volume-icon{
+  float: left;
+  margin: 3px 0 0 50px;
+  span{
+    color: #3d87b2;
+    font-size: 18px;
+  }
 }
 
 .album{
@@ -124,4 +188,5 @@ h1{
   font-size: 16px;
   color: #1c506e;
   padding-left: 8px;
+  margin-top: 10px;
 }
