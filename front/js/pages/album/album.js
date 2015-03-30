@@ -3,10 +3,12 @@
 define([
     'angularRoute',
     'bootstrap',
-    'jquery'
+    'jquery',
+    'vk'
 ], function() {
 angular.module('Music.album', [
-    'ngRoute'
+    'ngRoute',
+    'Music.vk'
 ])
     .config(function($routeProvider) {
         $routeProvider.when('/artist/:artist/album/:album', {
@@ -15,7 +17,7 @@ angular.module('Music.album', [
         });
     })
 
-    .controller('AlbumCtrl', function($scope, $location, $sce, $routeParams) {
+    .controller('AlbumCtrl', function($scope, $location, $sce, $routeParams, vk) {
         console.log($routeParams.artist);
         console.log($routeParams.album);
 
@@ -25,13 +27,19 @@ angular.module('Music.album', [
             });
         })
 
-        /*
-        $.getJSON("http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + $routeParams.artist + "&api_key=ff756adbaf5b90f9d733fa0fdaae91af&format=json", function(data){
-            $scope.$apply(function () {
-                console.log(data);
-                $scope.albums = data.topalbums.album;
+        $scope.startAudio = function(track){
+            vk.getAudio($routeParams.artist, track).then(function(response){
+                console.log(response);
+
+                var oAudio = document.getElementById('myaudio');
+                var audioURL = document.getElementById('audiofile');
+                oAudio.src = response;
+
+                console.log(oAudio);
+
+                oAudio.play();
             });
-        })*/
+        }
 
         $scope.getSanitazedString = function(string){
             return string.replace(/ /g, '+')

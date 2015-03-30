@@ -30,8 +30,8 @@ require.config({
         album: '/static/js/pages/album/album',
         toolbar: '/static/js/components/toolbar/toolbar',
         lastfm: '/static/js/components/lastfm/lastfm',
-        vk: '/static/js/components/vk/vk',
-        player: '/static/js/components/player/player'
+        player: '/static/js/components/player/player',
+        vk: '/static/js/components/vk/vk'
 	},
 	shim: {
 		angular : {'exports' : 'angular'},

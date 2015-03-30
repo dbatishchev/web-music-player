@@ -1,10 +1,10 @@
 <h1>{{artist.name}}</h1>
 <div class="clearfix artist">
-    <div class="artist-image">
+    <div class="artist-page-image">
         <img src="{{artist.image[4]['#text']}}">
     </div>
-    <div class="artist-info">
-        <ul class="artist-tags clearfix">
+    <div class="artist-page-info">
+        <ul class="artist-page-tags clearfix">
             <li data-ng-repeat="tag in artist.tags.tag"><span class="label label-info">{{tag.name}}</span></li>
         </ul>
         <p ng-bind="artist.bio.summary"></p>

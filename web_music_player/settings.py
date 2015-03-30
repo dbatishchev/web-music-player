@@ -96,6 +96,7 @@ VK_APP_ID = '4850739'
 VKONTAKTE_APP_ID = VK_APP_ID
 VK_API_SECRET = 'cz15I1xUb3HGAOCqTLL7'
 VKONTAKTE_APP_SECRET = VK_API_SECRET
+VK_EXTRA_SCOPE = ['audio']
 
 import random
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth_Vader', 'Obi-Wan_Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])

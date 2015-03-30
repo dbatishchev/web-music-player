@@ -8,9 +8,12 @@
             <li data-ng-repeat="tag in album.toptags.tag"><span class="label label-info">{{tag.name}}</span></li>
         </ul>
         <ul class="album-page-tracks">
-            <li data-ng-repeat="track in album.tracks.track">
+            <li data-ng-repeat="track in album.tracks.track" ng-click="startAudio(track.name)">
                 {{track.name}} : {{track.duration}}
             </li>
         </ul>
     </div>
 </div>
+
+ <audio id="myaudio">
+</audio>
