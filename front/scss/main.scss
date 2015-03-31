@@ -257,6 +257,11 @@ h1{
 .album-page-image{
   float: left;
   margin: 0 20px 0 0;
+  img{
+    width: 300px;
+    height: 300px;
+    border-radius: 6px;
+  }
 }
 .album-page-info{
   overflow: hidden;
@@ -269,4 +274,26 @@ h1{
     float: left;
     margin: 0 10px 10px 0;
   }
+}
+.album-page-tracks{
+  list-style:none;
+  padding: 0;
+  margin: 0px;
+  width: 360px;
+  li{
+    line-height: 46px;
+    color: #1c506e;
+    padding: 0 20px;
+    cursor: pointer;
+    &:nth-child(even) {
+        background-color: #fff;
+    }
+    &.active {
+        background-color: #6bc0f1;
+        color: #fff;
+    }
+  }
+}
+.album-page-tracks-track-time{
+  float: right;
 }

@@ -15,20 +15,34 @@ var path = {
     dist: {
         js: 'web_music_player/static/js/',
         css: 'web_music_player/static/css/',
-        img: 'web_music_player/static/images/'
+        img: 'web_music_player/static/images/',
+        html: ''
     },
     src: {
         js: 'front/js/**/*.js',
         style: 'front/scss/*.scss',
-        img: 'front/images/**/*.*'
+        img: 'front/images/**/*.*',
+        html: ''
     },
     watch: {
         js: 'front/js/**/*.js',
         style: 'front/scss/*.scss',
-        img: 'front/images/**/*.*'
+        img: 'front/images/**/*.*',
+        html: ['front/js/components/**/*.html', 'front/js/pages/**/*.html', 'front/js/partials/*.html']
     },
     clean: './web_music_player/static'
 };
+
+gulp.task('html:build', function () {
+    gulp.src("front/js/components/**/*.html")
+        .pipe(gulp.dest('web_music_player/static/js/components'));
+
+    gulp.src("front/js/pages/**/*.html")
+        .pipe(gulp.dest('web_music_player/static/js/pages'));
+
+    gulp.src("front/js/partials/*.html")
+        .pipe(gulp.dest('web_music_player/static/js/partials'));
+});
 
 gulp.task('js:build', function () {
     gulp.src([path.src.js, '!front/js/pages/**/*.spec.js', '!front/js/components/**/*.spec.js']) //Найдем наш main файл
@@ -41,17 +55,8 @@ gulp.task('js:build', function () {
     gulp.src("front/js/components/**/*.spec.js")
         .pipe(gulp.dest('web_music_player/static/js/components'));
 
-    gulp.src("front/js/components/**/*.html")
-        .pipe(gulp.dest('web_music_player/static/js/components'));
-
     gulp.src("front/js/pages/**/*.spec.js")
         .pipe(gulp.dest('web_music_player/static/js/pages'));
-
-    gulp.src("front/js/pages/**/*.html")
-        .pipe(gulp.dest('web_music_player/static/js/pages'));
-
-    gulp.src("front/js/partials/*.html")
-        .pipe(gulp.dest('web_music_player/static/js/partials'));
 });
 
 gulp.task('style:build', function () {
@@ -70,6 +75,9 @@ gulp.task('image:build', function () {
 });
 
 gulp.task('watch', function(){
+    watch(path.watch.html, function(event, cb) {
+        gulp.start('html:build');
+    });
     watch([path.watch.style], function(event, cb) {
         gulp.start('style:build');
     });
@@ -84,7 +92,8 @@ gulp.task('watch', function(){
 gulp.task('build', [
     'js:build',
     'image:build',
-    'style:build'
+    'style:build',
+    'html:build'
 ]);
 
 gulp.task('default', ['build', 'watch']);

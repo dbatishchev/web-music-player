@@ -28,15 +28,14 @@ angular.module('Music.album', [
         })
 
         $scope.startAudio = function(track){
-            vk.getAudio($routeParams.artist, track).then(function(response){
-                console.log(response);
+            for (var i = 0; i < $scope.album.tracks.track.length; i++){
+                $scope.album.tracks.track[i].active = false;
+            }
+            track.active = true;
 
+            vk.getAudio($routeParams.artist, track.name).then(function(response){
                 var oAudio = document.getElementById('myaudio');
-                var audioURL = document.getElementById('audiofile');
                 oAudio.src = response;
-
-                console.log(oAudio);
-
                 oAudio.play();
             });
         }
@@ -47,6 +46,12 @@ angular.module('Music.album', [
 
         $scope.getAlbumUrl = function(album){
             return album.artist.name.replace(/ /g, '+') + '/' + album.name.replace(/ /g, '+');
+        }
+
+        $scope.getTime = function(time){
+            var minutes = Math.floor(time / 60);
+            var seconds = time - minutes * 60;
+            return minutes + ":" + seconds;
         }
     })
 });
