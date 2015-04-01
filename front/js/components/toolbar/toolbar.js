@@ -17,38 +17,71 @@ define([
 
                 },
                 link:function($scope, element, attrs) {
-                    var audio = document.getElementById('myaudio');
+                    var audio = null;
+                    var activated = false;
 
                     $timeout(function () {
+                        audio = document.getElementById('myaudio');
+
                         $("#myaudio").bind("timeupdate", function(e) {
                             var duration = this.duration;
                             var currentTime = this.currentTime;
                             var progress = Math.floor((100 / duration) * currentTime);
-                            $('.progress-bar').css("width", progress+"%");
+                            $('.progress-bar-time').css("width", progress+"%");
                         });
-                    });
 
-                    $scope.togglePlay = function(){
-                        console.log('toggle');
-                    }
-                    $scope.next = function(){
-                        console.log('next');
-                    }
-                    $scope.prev = function(){
-                        console.log('prev');
-                    }
-                    $scope.changeProgress = function(){
-                        console.log('changeProgress');
-                    }
-                    $scope.changeVolume = function(){
-                        console.log('changeVolume');
-                    }
-                    $scope.shuffle = function(){
-                        console.log('shuffle');
-                    }
-                    $scope.repeat = function(){
-                        console.log('repeat');
-                    }
+                        var tooglePlayer = function(){
+                            if ($('.btn-play').hasClass('glyphicon-pause')){
+                                audio.pause();
+                            } else {
+                                audio.play();
+                            }
+                            $('.btn-play').toggleClass('glyphicon-play');
+                            $('.btn-play').toggleClass('glyphicon-pause');
+                        }
+
+                        $scope.play = function(){
+                            if (!activated){
+                                activated = true;
+                                tooglePlayer();
+                                return;
+                            }
+                            audio.play();
+                        }
+                        $scope.togglePlay = function(){
+                            tooglePlayer();
+                        };
+                        $scope.next = function(){
+                            player.nextSong();
+                            $scope.play();
+                        };
+                        $scope.prev = function(){
+                            player.prevSong();
+                            $scope.play();
+                        };
+                        $scope.changeProgress = function(){
+                            console.log('changeProgress');
+                        };
+                        $scope.changeVolume = function(){
+                            console.log('changeVolume');
+                        };
+                        $scope.shuffle = function(){
+                            console.log('shuffle');
+                        };
+                        $scope.repeat = function(){
+                            console.log('repeat');
+                        };
+
+                        $scope.$watch(function () {
+                            return player.src;
+                        },
+                        function (src) {
+                            if (!src) return;
+                            audio.src = src;
+                            $scope.play();
+                        });
+
+                    });
                 }
             }
         });

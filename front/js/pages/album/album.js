@@ -4,7 +4,8 @@ define([
     'angularRoute',
     'bootstrap',
     'jquery',
-    'vk'
+    'vk',
+    'player'
 ], function() {
 angular.module('Music.album', [
     'ngRoute',
@@ -17,7 +18,7 @@ angular.module('Music.album', [
         });
     })
 
-    .controller('AlbumCtrl', function($scope, $location, $sce, $routeParams, vk) {
+    .controller('AlbumCtrl', function($scope, $location, $sce, $routeParams, vk, player) {
         console.log($routeParams.artist);
         console.log($routeParams.album);
 
@@ -34,9 +35,8 @@ angular.module('Music.album', [
             track.active = true;
 
             vk.getAudio($routeParams.artist, track.name).then(function(response){
-                var oAudio = document.getElementById('myaudio');
-                oAudio.src = response;
-                oAudio.play();
+                player.setTrack(track, response, $routeParams.artist);
+                player.playlist = $scope.album.tracks.track;
             });
         }
 
