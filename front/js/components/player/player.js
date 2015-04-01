@@ -3,12 +3,15 @@
 define(['angular'], function(angular) {
     angular.module('Music.player', [])
         .service('player', function() {
-            /*
-            var thisIsPrivate = "Private";
-            this.variable = "This is public";
-            this.getPrivate = function() {
-                return thisIsPrivate;
+            this.playlist = [];
+            this.currentId = null;
+            this.currentTrack = null;
+
+            this.setPlaylist = function(){
+
             };
-            */
+            this.setTrack = function(){
+
+            };
         });
 });

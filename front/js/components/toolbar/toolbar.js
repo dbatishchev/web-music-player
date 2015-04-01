@@ -1,8 +1,12 @@
 'use strict';
 
-define(['angular'], function(angular) {
-    angular.module('Music.toolbar', [])
-        .directive('ngToolbar', function($timeout) {
+define([
+    'angular',
+    'jquery',
+    'player'
+], function(angular) {
+    angular.module('Music.toolbar', ['Music.player'])
+        .directive('ngToolbar', function(player, $timeout) {
             return {
                 restrict: 'EA',
                 terminal: true,
@@ -14,6 +18,15 @@ define(['angular'], function(angular) {
                 },
                 link:function($scope, element, attrs) {
                     var audio = document.getElementById('myaudio');
+
+                    $timeout(function () {
+                        $("#myaudio").bind("timeupdate", function(e) {
+                            var duration = this.duration;
+                            var currentTime = this.currentTime;
+                            var progress = Math.floor((100 / duration) * currentTime);
+                            $('.progress-bar').css("width", progress+"%");
+                        });
+                    });
 
                     $scope.togglePlay = function(){
                         console.log('toggle');
