@@ -41,6 +41,16 @@ define([
                             audio.currentTime = (duration/100) * progress;
                         });
 
+                        $('.volume-level').click(function (e) { //Relative ( to its parent) mouse position
+                            var posX = $(this).offset().left;
+                            var position = e.pageX - posX;
+                            var width = $('.volume-level').width();
+                            var progress = Math.floor((100 / width) * position);
+
+                            audio.volume = progress / 100;
+                            $('.progress-bar-volume').css("width", progress+"%");
+                        });
+
                         var tooglePlayer = function(){
                             if ($('.btn-play').hasClass('glyphicon-pause')){
                                 audio.pause();
