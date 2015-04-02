@@ -5,7 +5,7 @@ define([
     'jquery'
 ], function(angular) {
     angular.module('Music.headerSearch', [])
-        .directive('ngHeaderSearch', function($timeout) {
+        .directive('ngHeaderSearch', function($location) {
             return {
                 restrict: 'EA',
                 terminal: true,
@@ -16,7 +16,10 @@ define([
 
                 },
                 link:function($scope, element, attrs) {
-
+                    $scope.submitForm = function(){
+                        var q = $scope.q.replace(/ /g, '+');
+                        $location.path("/search/" + q);
+                    }
                 }
             }
         });
