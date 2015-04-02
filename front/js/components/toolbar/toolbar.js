@@ -30,6 +30,17 @@ define([
                             $('.progress-bar-time').css("width", progress+"%");
                         });
 
+                        $('.time-progress').click(function (e) { //Relative ( to its parent) mouse position
+                            var posX = $(this).offset().left;
+                            var position = e.pageX - posX;
+                            var width = $('.time-progress').width();
+                            var progress = Math.floor((100 / width) * position);
+
+                            var duration = player.currentTrack.duration;
+
+                            audio.currentTime = (duration/100) * progress;
+                        });
+
                         var tooglePlayer = function(){
                             if ($('.btn-play').hasClass('glyphicon-pause')){
                                 audio.pause();
