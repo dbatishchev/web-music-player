@@ -6,14 +6,18 @@ define([
     'frontpage',
     'artist',
     'album',
-    'toolbar'
+    'search',
+    'toolbar',
+    'headerSearch'
 ], function(angular) {
 	return angular.module('Music', [
 		'ngRoute',
 		'Music.frontpage',
 		'Music.artist',
 		'Music.album',
-        'Music.toolbar'
+		'Music.search',
+        'Music.toolbar',
+        'Music.headerSearch'
 	])
         .config(function() {
 

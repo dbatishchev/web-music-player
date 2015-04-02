@@ -28,7 +28,9 @@ require.config({
         frontpage: '/static/js/pages/frontpage/frontpage',
         artist: '/static/js/pages/artist/artist',
         album: '/static/js/pages/album/album',
+        search: '/static/js/pages/search/search',
         toolbar: '/static/js/components/toolbar/toolbar',
+        headerSearch: '/static/js/components/headerSearch/headerSearch',
         lastfm: '/static/js/components/lastfm/lastfm',
         player: '/static/js/components/player/player',
         vk: '/static/js/components/vk/vk'
