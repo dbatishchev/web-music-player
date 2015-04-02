@@ -80,17 +80,13 @@ define([
                             player.prevSong();
                             $scope.play();
                         };
-                        $scope.changeProgress = function(){
-                            console.log('changeProgress');
-                        };
-                        $scope.changeVolume = function(){
-                            console.log('changeVolume');
-                        };
                         $scope.shuffle = function(){
-                            console.log('shuffle');
+                            $('.btn-state-shuffle').toggleClass('active');
+                            player.shuffle = !player.shuffle;
                         };
                         $scope.repeat = function(){
-                            console.log('repeat');
+                            $('.btn-state-repeat').toggleClass('active');
+                            player.repeat = !player.repeat;
                         };
 
                         $scope.$watch(function () {
