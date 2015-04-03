@@ -1,0 +1,10 @@
+<h1>Search</h1>
+<div class="clearfix">
+    <div data-ng-repeat="album in albums" class="album">
+            <div class="image">
+                <a href="#/artist/{{getSanitazedString(album.artist)}}/album/{{getSanitazedString(album.name)}}"><img src="{{album.image[3]['#text']}}"></a>
+            </div>
+            <div class="name"><a href="#/artist/{{getSanitazedString(album.artist)}}/album/{{getSanitazedString(album.name)}}">{{album.name}}</a></div>
+            <div class="artist"><a href="#/artist/{{getSanitazedString(album.artist)}}">{{album.artist}}</a></div>
+    </div>
+</div>
