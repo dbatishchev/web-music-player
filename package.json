@@ -4,7 +4,18 @@
   "description": "Web Music Player",
   "main": "/front/js/main.js",
   "author": "Dmitrii Batishchev",
-  "devDependencies": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbatishchev/web-music-player"
+  },
+  "keywords": [
+    "music",
+    "player",
+    "django",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "dependencies": {
     "amdefine": "0.1",
     "bower": "*",
     "gulp": "^3.8",
