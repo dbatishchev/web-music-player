@@ -9,11 +9,13 @@
         </ul>
         <ul class="album-page-tracks">
             <li data-ng-repeat="track in album.tracks.track" ng-class="{active: track.active}" ng-click="startAudio(track)">
-                {{$index + 1}}. {{track.name}} <div class="album-page-tracks-track-time">{{getTime(track.duration)}}</div>
+                <span ng-click="downloadFile(track)" class="glyphicon glyphicon-download-alt"></span> {{$index + 1}}. {{track.name}} <div class="album-page-tracks-track-time">{{getTime(track.duration)}}</div>
             </li>
         </ul>
     </div>
 </div>
+
+<div ng-click="download()">Download</div>
 
  <audio id="myaudio">
 </audio>

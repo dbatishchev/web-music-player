@@ -53,5 +53,33 @@ angular.module('Music.album', [
             var seconds = time - minutes * 60;
             return minutes + ":" + seconds;
         }
+
+        $scope.downloadTrack = function(track){
+            vk.getAudio($routeParams.artist, track.name).then(function(response){
+                window.location.assign(response);
+            });
+        }
+
+        $scope.download = function(){
+            var tracks = [];
+            for(var i = 0; i < $scope.album.tracks.track.length; i++){
+                tracks.push($scope.getSanitazedString($scope.album.tracks.track[i].name));
+            }
+            var data = {
+                artist: $scope.getSanitazedString($routeParams.artist),
+                tracks: tracks
+            };
+
+            $.ajax({
+                url: '/download',
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                dataType: 'text',
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        }
     })
 });

@@ -7,3 +7,7 @@ psycopg2==2.5.3
 static3==0.5.1
 wsgiref==0.1.2
 django-social-auth
+mysql-python
+simplejson
+apscheduler==3.0.0
+zipfile
