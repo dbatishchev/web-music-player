@@ -3,6 +3,7 @@
     <div class="album-page-image">
         <img src="{{album.image[4]['#text']}}">
     </div>
+    <div class="add-to-library"><span ng-click="addToFavorites()" class="glyphicon glyphicon-bookmark"></span></div>
     <div class="album-page-info">
         <ul class="album-page-tags clearfix">
             <li data-ng-repeat="tag in album.toptags.tag"><span class="label label-info">{{tag.name}}</span></li>

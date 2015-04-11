@@ -28,6 +28,26 @@ angular.module('Music.album', [
             });
         })
 
+        $scope.addToFavorites = function(){
+            $.ajax({
+                url: '/add-to-favorites',
+                type: 'POST',
+                data: {
+                    artist: $scope.album.artist,
+                    album: $scope.album.name,
+                    cover: $scope.album.image[4]['#text']
+                },
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+            $.getJSON("/", function(data){
+                $scope.$apply(function () {
+                    $scope.album = data.album;
+                });
+            })
+        }
+
         $scope.startAudio = function(track, $event){
             var $elem = $($event.target);
 

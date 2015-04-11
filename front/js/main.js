@@ -6,6 +6,7 @@ define([
     'frontpage',
     'artist',
     'album',
+    'library',
     'search',
     'toolbar',
     'headerSearch'
@@ -16,6 +17,7 @@ define([
 		'Music.artist',
 		'Music.album',
 		'Music.search',
+		'Music.library',
         'Music.toolbar',
         'Music.headerSearch'
 	])

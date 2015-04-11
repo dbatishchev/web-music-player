@@ -16,6 +16,21 @@ angular.module('Music.library', [
     })
 
     .controller('LibraryCtrl', function($scope, $location, $sce) {
+        console.log('!!!');
 
+        $.getJSON("/add-to-favorites", function(data){
+            $scope.$apply(function () {
+                $scope.albums = data['albums'];
+                console.log('!!!');
+            });
+        })
+
+        $scope.getSanitazedString = function(string){
+            return string.replace(/ /g, '+')
+        }
+
+        $scope.getAlbumUrl = function(album){
+            return album.artist.replace(/ /g, '+') + '/' + album.album.replace(/ /g, '+');
+        }
     })
 });

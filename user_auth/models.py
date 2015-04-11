@@ -15,3 +15,54 @@ class CustomUser(models.Model):
 
     def is_authenticated(self):
         return True
+
+
+class UserPlaylist(models.Model):
+    name = models.CharField(max_length=255)
+    user = models.ForeignKey('CustomUser')
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+class UserPlaylistItem(models.Model):
+    album = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    track = models.CharField(max_length=255)
+    cover = models.CharField(max_length=255)
+    index = models.IntegerField()
+
+
+class UserLibraryItem(models.Model):
+    album = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    cover = models.CharField(max_length=255)
+    user = models.ForeignKey('CustomUser')
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def as_json(self):
+        return dict(
+            id=self.id,
+            artist=self.artist,
+            cover=self.cover,
+            album=self.album)
+
+
+class UserDownloadItem(models.Model):
+    album = models.CharField(max_length=255)
+    artist =  models.CharField(max_length=255)
+    user = models.ForeignKey('CustomUser')
+    is_resolved = models.BooleanField(default=False)
+    filename = models.CharField(max_length=255)
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+class UserHistoryItem(models.Model):
+    album = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    track = models.CharField(max_length=255)
+    cover = models.CharField(max_length=255)
+    user = models.ForeignKey('CustomUser')
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)

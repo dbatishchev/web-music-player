@@ -3,6 +3,8 @@ from django.shortcuts import render_to_response, redirect
 import urllib2
 import simplejson as json
 from django.views.decorators.csrf import csrf_exempt
+from datetime import datetime
+
 
 def index(request):
     if not request.user.is_authenticated():
@@ -13,6 +15,7 @@ def index(request):
 
     context = {'user': request.user, 'token': token}
     return render(request, 'index.html', context)
+
 
 def login(request):
     context = {}
