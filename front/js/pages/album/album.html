@@ -8,8 +8,8 @@
             <li data-ng-repeat="tag in album.toptags.tag"><span class="label label-info">{{tag.name}}</span></li>
         </ul>
         <ul class="album-page-tracks">
-            <li data-ng-repeat="track in album.tracks.track" ng-class="{active: track.active}" ng-click="startAudio(track)">
-                <span ng-click="downloadFile(track)" class="glyphicon glyphicon-download-alt"></span> {{$index + 1}}. {{track.name}} <div class="album-page-tracks-track-time">{{getTime(track.duration)}}</div>
+            <li data-ng-repeat="track in album.tracks.track" ng-class="{active: track.active}" ng-click="startAudio(track, $event)">
+                <a download class="glyphicon glyphicon-download-alt"></a> {{$index + 1}}. {{track.name}} <div class="album-page-tracks-track-time">{{getTime(track.duration)}}</div>
             </li>
         </ul>
     </div>
@@ -19,3 +19,5 @@
 
  <audio id="myaudio">
 </audio>
+
+<iframe id=my_iframe style='display:none;'></iframe>

@@ -28,16 +28,27 @@ angular.module('Music.album', [
             });
         })
 
-        $scope.startAudio = function(track){
+        $scope.startAudio = function(track, $event){
+            var $elem = $($event.target);
+
             for (var i = 0; i < $scope.album.tracks.track.length; i++){
                 $scope.album.tracks.track[i].active = false;
             }
             track.active = true;
 
+            console.log(track);
+
             vk.getAudio($routeParams.artist, track.name).then(function(response){
                 player.setTrack(track, response, $routeParams.artist);
                 player.playlist = $scope.album.tracks.track;
+
+                $elem.find('.glyphicon.glyphicon-download-alt').attr({
+                    href: response,
+                    download: track.artist.name + " - " + track.name
+                }).addClass('active');
             });
+
+
         }
 
         $scope.getSanitazedString = function(string){
@@ -52,12 +63,6 @@ angular.module('Music.album', [
             var minutes = Math.floor(time / 60);
             var seconds = time - minutes * 60;
             return minutes + ":" + seconds;
-        }
-
-        $scope.downloadTrack = function(track){
-            vk.getAudio($routeParams.artist, track.name).then(function(response){
-                window.location.assign(response);
-            });
         }
 
         $scope.download = function(){
